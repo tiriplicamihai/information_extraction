@@ -1,0 +1,56 @@
+http://www.converterlite.com/license
+
+End User License Agreement for Software Product of ConverterLite
+
+1. Software License Agreement
+
+In this License, “the Product” means the software product “ConverterLite” which may be found at www.converterlite.com
+
+This License is a legal agreement between you and ConverterLite for the Product.
+
+By proceeding to install the Product, and in consideration of your use of the Product, you are deemed to agree to be bound by the terms of this License.
+
+ConverterLite permits you to use the Product only in accordance with the terms of this License and your rights under this License will terminate automatically without notice if you fail to comply with the terms of this License.
+
+2. Product License
+
+In consideration of your agreeing to abide by the terms of this License and subject to your compliance with the terms of this License, ConverterLite grants you a non-exclusive, non-transferable license to use the Product for the following purposes and in the following manner:
+
+You may:
+
+Install and use the Product free of charge for personal, educational (non-profit) use. In these cases, you are granted the right to use and to make an unlimited number of copies of this software.
+
+You may not:
+
+Use the Product for commercial use.
+Remove any proprietary notices or labels from the Product.
+Reverse engineer, decompile, disassemble or make derivative works based on the Product (except and only to the extent that such activity is expressly permitted by applicable law notwithstanding this limitation).
+Rent, lease, sub-license or assign the Product or any copy thereof, including any related documentation.
+
+3. Additional Terms for Businesses
+
+Where you are licensing the Product as a business and not as a consumer, this license shall take effect between ConverterLite and you as a business entity and you shall take all appropriate steps to ensure that the Product is operated in a proper manner by your employees and staff.
+
+4. Intellectual Property Rights
+
+The Product is intellectual property of ConverterLite and is protected by law. You acknowledge that all intellectual property rights in the Product anywhere in the world belong to ConverterLite, that rights in the Product are licensed (not sold) to you, and that you have no rights in, or to, the Product other than the right to use them in accordance with the terms of this License.
+
+5. Warranty Disclaimer
+
+THIS PRODUCT AND ANY RELATED DOCUMENTATION is PROVIDED “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING, WITHOUT LIMITATION, THE IMPLIED WARRANTIES OR MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, OR NONINFRINGEMENT. THE ENTIRE RISK ARISING OUT OF USE OR PERFORMANCE OF THE PRODUCT REMAINS WITH YOU.
+
+6. Limitation of Liability
+
+IN NO EVENT SHALL CONVERTERLITE BE LIABLE FOR ANY SPECIAL, INCIDENTAL, INDIRECT, OR CONSEQUENTIAL DAMAGES WHATSOEVER (INCLUDING, WITHOUT LIMITATION, DAMAGES FOR LOSS OF BUSINESS PROFITS, BUSINESS INTERRUPTION, LOSS OF BUSINESS INFORMATION, OR ANY OTHER PECUNIARY LOSS) ARISING OUT OF THE USE OR OF INABILITY TO USE THE PRODUCT.
+
+7. General
+
+- Updates may be licensed to you by ConverterLite with additional or different terms but ConverterLite has no obligation to provide any updates.
+
+- This License is the entire agreement between you and us and supersedes any prior representations, undertakings or advertising relating to the Product and you acknowledge that in entering into this License you have not relied on any statement, representation, advertising, assurance or warranty (whether made negligently or innocently) other than as expressly set out in this License.
+
+- This terms are subject to change without notice. Visit our site www.converterlite.com and download software to get the most recent End User License Agreement.
+
+- The Product uses libraries from the FFmpeg project under the LGPLv2.1, which is a separate software application from ConverterLite. More information about FFmpeg can be found: http://ffmpeg.org/
+
+- You convert files at your own risk. You should be aware of copyright infringement and intellectual property laws of the country you use this product in.

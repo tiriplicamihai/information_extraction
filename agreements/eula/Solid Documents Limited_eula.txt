@@ -1,0 +1,79 @@
+http://www.soliddocuments.com/license.htm
+
+End User License Agreement (EULA)
+
+THIS IS A CONTRACT. CAREFULLY READ THIS AGREEMENT. BY INSTALLING THIS SOFTWARE YOU ACCEPT AND AGREE TO ALL THE TERMS AND CONDITIONS OF THIS AGREEMENT.
+
+This Solid Documents Limited "Solid Documents" End User License Agreement ("EULA") accompanies all software products ("Software"). Please read this EULA carefully.
+
+Solid Documents and its suppliers own all intellectual property in the Software. The Software is licensed, not sold. The Software is protected by copyright laws and international copyright treaties, as well as other intellectual property laws and treaties.
+
+If you do not agree with all of the terms and conditions of this agreement, you must
+
+(1) IMMEDIATELY CEASE USING THE SOFTWARE,
+(2) DESTROY ALL COPIES OF THE SAME, INCLUDING ANY COPIES STORED ON YOUR HARD DRIVE AND ANY ARCHIVAL COPIES, AND
+(3) FOLLOW THE PROCEDURES ESTABLISHED BY THE MANUFACTURER.
+
+DEFINITIONS
+
+"Computer" is an electronic device that stores, retrieves, and processes data, and can be programmed with instructions. A computer is composed of hardware and software, and can exist in a variety of sizes and configurations.
+
+"Evaluation Software" means a version of Solid Documents' Software licensed as an evaluation or trial. This version is neither for resale nor for production use.
+
+"Internal Network" is a privately maintained computer network that can be accessed only by authorized persons, as in members or employees of the organization / corporation / business entity that owns it. Internal Network specifically excludes the Internet or any other network community open to the public, including but not limited to membership- or subscription-driven groups, associations, and similar organizations. Connection via secure links (VPN or dial up) to your Internal Network for the purpose of this contract is considered use over an Internal Network.
+
+"Licensee" means a person and/or company entering into this EULA.
+
+"Software" means only the Solid Documents software program(s) and third party software programs, in each case, supplied by Solid Documents herewith, and corresponding documentation, associated media, printed materials, help files, online or electronic documentation, images, sounds, clip art and other artistic work, and all updates or upgrades of the above that are provided to you.
+
+"Updates" means subsequent releases of the Software that are created for the purposes of bug fixes, error correction, or minor enhancements to functionality and that are generally made available to Licensees of the Software. "Updates" may or may not include the addition of new functionality. All Updates provided hereunder shall be considered Software and will be subject to this Agreement.
+
+"Software Lifecycle" means period of time that software is supported. Solid Documents will support software for a period of 5 years (or 3 latest versions at our discretion.)
+
+"Unlock Code" means a unique unlock sequence that allows enabling of the Software for production use.
+
+"Solid Documents" means Solid Documents Limited, a New Zealand Limited Liability Company, 215 Akersten Street, PO BOX 5140, Port Nelson, Nelson, 7043, New Zealand.
+
+LICENSE GRANT. Solid Documents grants you a non-exclusive, non-transferable right and limited license to use the Software as follows:
+
+Software License. Upon issuance of a valid Unlock Code sequence by Solid Documents to Licensee, you can install Software on one (1) Computer, unless otherwise indicated under a valid license (e.g. Multiple Seat License) granted by Solid Documents.
+
+a. Use.
+
+Individual License Use. With an individual license you may use the Software on a single computer ("Your Computer") and not across a network.
+
+Multiple Seat License Use. With multiple seat licenses, you are allowed to install the Software on "N" Computers where "N" is the number of licenses purchased. You can store the Software on your Internal Network for authorized users to access for installation on their Computer. It is NOT a concurrent use license (based on simultaneous usage) or a roaming license (based on number of users).
+
+Additional Restrictions. You may not separate component parts of the Software for use on more than one computer. You do not have the right to distribute the Software. You may load the Software into your Computer's temporary memory (RAM) for purposes of using the Software. Licensee agrees to not attempt to disable or violate the internal activation and licensing mechanism. For Solid Converter® PDF: Licensee also agrees to not charge any fees, directly or indirectly, for PDF to Word document conversion through use of the Software.
+
+b. Storage. You may copy the Software into the local memory or storage device. The license for the Software may not be shared or used concurrently on different computers.
+
+c. Copying. You may make archival or back-up copies of the Software, provided the copy contains all the original Software's proprietary notices and that it is used only for back-up purposes.
+
+d. Reservation of Rights. Solid Documents reserves all rights not expressly granted to you in this License Agreement.
+
+e. License Abuse and/or Violation. If any abuse of a license is suspected or found, Solid Documents retains the right to make the Unlock Code invalid. You also agree to surrender your license immediately upon any notification of violation of any of the terms in this EULA and you will not be refunded any money upon surrendering your license.
+
+f. Freeware. This Software is not freeware and is not in the public domain. If you are using an Internet version, the Software you are installing is Evaluation Software. As such, you may evaluate the program for the maximum trial period stated in the program. If, after that time, you decide to continue using it, you must register it by paying a registration fee at our Web site (/). If, after the trial period, you choose not to register it, you must uninstall it from any and all machines to which it was installed on a trial basis. This Evaluation Software can be turned into a fully registered copy by registering the Software on our Web site.
+
+COPYRIGHT. The Software is proprietary to Solid Documents and its licensors. Solid Documents and its licensors retain all copyrights, trade secret rights, patents, trademarks, and any other proprietary rights relating to the Software. Except as expressly provided in the License Grant above, you may not copy, reproduce, alter, modify, decompile, disassemble, reverse engineer, or create derivative works based on the Software. All rights not expressly granted are reserved. Any copy of the Software that you are permitted to make under this Agreement must include all of the copyright and other notices appearing in the original copy of the Software.
+
+RESTRICTIONS ON TRANSFER. This license is personal to Licensee, and neither your rights hereunder nor any copy of the Software may be sold, assigned, distributed, transferred or sublicensed to any other person, in any media (including electronic media), without the prior written consent of Solid Documents. Any transfer in violation of this section will be null and void and will automatically terminate your right to use or possess the Software.
+
+EXPORT COMPLIANCE. You may not export or reexport, directly or indirectly, the Software into any country prohibited by the United States Export Administration Act and the regulations thereunder.
+
+UPDATED VERSIONS. The Software may be updated from time to time by Solid Documents at its sole discretion. You may obtain such updated versions of the Software from Solid Documents on the terms agreed upon by Solid Documents and you. Such updated versions of the Software are expected to operate more accurately and effectively. You acknowledge that you are responsible for downloading and installing such updated versions of the Software.
+
+DUAL MEDIA SOFTWARE. You may receive the Software in more than one medium (download and CD). You may use only one medium that is appropriate for your single computer. You may not install the other medium on another computer. You may not loan, rent, lease, or otherwise transfer the other medium to another user.
+
+LIMITED WARRANTY. Solid Documents warrants that, for sixty (60) days from the date of delivery of the Software to you, the Software will perform substantially in accordance with its applicable documentation. Solid Documents DOES NOT WARRANT THAT THE SOFTWARE WILL BE UNINTERRUPTED OR THAT THE SOFTWARE WILL BE ERROR-FREE. THE ABOVE WARRANTY IS EXCLUSIVE AND IN LIEU OF ALL OTHER WARRANTIES, WHETHER EXPRESSED OR IMPLIED, INCLUDING THE IMPLIED WARRANTIES OF MERCHANTABILITY AND IMPLIED WARRANTIES OF FITNESS FOR A PARTICULAR PURPOSE. IF APPLICABLE LAW REQUIRES ANY WARRANTIES WITH RESPECT TO THE SOFTWARE, ALL SUCH WARRANTIES ARE LIMITED IN DURATION TO SIXTY (60) DAYS FROM THE DATE OF DELIVERY. (USA ONLY) SOME STATES DO NOT ALLOW THE EXCLUSION OF IMPLIED WARRANTIES, SO THE ABOVE EXCLUSION MAY NOT APPLY TO YOU. THIS WARRANTY GIVES YOU SPECIFIC LEGAL RIGHTS AND YOU MAY ALSO HAVE OTHER LEGAL RIGHTS THAT VARY FROM STATE TO STATE.
+
+LIMITATION OF LIABILITY. IN NO EVENT WILL SOLID DOCUMENTS, ITS SUPPLIERS, RESELLERS OR ITS LICENSORS BE LIABLE TO YOU FOR ANY CONSEQUENTIAL, INCIDENTAL OR SPECIAL DAMAGES, INCLUDING, BUT NOT LIMITED TO, ANY LOSS OF PROFITS, BUSINESS INTERRUPTION, OR LOSS OF DATA ARISING OUT OF THE USE OR INABILITY TO USE THE SOFTWARE, EVEN IF SOLID DOCUMENTS, ITS SUPPLIERS, RESELLERS OR ITS LICENSORS HAVE BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES. IN NO EVENT SHALL SOLID DOCUMENTS' LIABILITY UNDER THIS AGREEMENT EXCEED THE AMOUNT OF THE LICENSE FEES ACTUALLY PAID BY YOU IN RESPECT OF THE COPY OF SOFTWARE GIVING RISE TO THE CLAIM. THE FOREGOING LIMITATION SHALL APPLY NOTWITHSTANDING ANY FAILURE OF ESSENTIAL PURPOSE OF ANY LIMITED REMEDY. (USA ONLY) SOME STATES DO NOT ALLOW THE LIMITATION OR EXCLUSION OF LIABILITY FOR INCIDENTAL OF CONSEQUENTIAL DAMAGES, SO THE ABOVE LIMITATION OR EXCLUSION MAY NOT APPLY TO YOU AND YOU MAY ALSO HAVE OTHER LEGAL RIGHTS THAT VARY FROM STATE TO STATE.
+
+SEVERABILITY. In the event any provision of this EULA is found to be invalid, illegal or unenforceable, a modified provision shall be substituted which carries out as nearly as possible the original intent of the Parties, and the validity, legality, and enforceability of any of the remaining provisions shall not in any way be affected or impaired thereby.
+
+NOTICE TO U.S. GOVERNMENT END USERS (USA users only). The Software and any accompanying documentation are provided with RESTRICTED RIGHTS. Use, duplication, or disclosure by the U.S. Government or its contractors is subject to restrictions as set forth in subparagraph (c)(1)(ii) of the Rights in Technical Data and Computer Software clause at DFARS 252.227-7013, or any successor regulation or as set forth in the particular department or agency regulations or rules which provide Solid Documents or its licensors with protection equivalent to or greater than that clause.
+
+GOVERNING LAW AND GENERAL PROVISIONS. This Agreement shall be governed by the internal laws of New Zealand, without regard to its conflicts of law provisions. This Agreement contains the complete agreement between the parties with respect to the subject matter hereof, and supersedes all prior or contemporaneous agreements or understandings, whether oral or written. All questions concerning this Agreement should be directed to: Solid Documents Limited, 215 Akersten Street, PO BOX 5140, Port Nelson, Nelson, 7043, New Zealand.
+
+SOFTWARE LICENSE. Solid Documents reserves the right to change or update any part of this agreement, at any time in the future, without prior notice or reason. The latest and most current agreement can be found at: /license.htm. 
