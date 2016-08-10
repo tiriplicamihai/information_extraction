@@ -14,7 +14,9 @@ class DateExtractor(object):
     """
 
     GRAMMAR = r"""
-        CHUNK: {<NN><\(><CD><\)><NNS|NN|JJ>}
+        CHUNK: {<NN|CD><\(><CD><\)><NNS|NN|JJ>}      # thirty (30) days
+               {<NN|CD><\(><CD><\)><VBG><NNS|NN|JJ>} # thirty (30) working days
+               {<CD><NNS>}                           # 10 days
     """
 
     def __init__(self, filename):
@@ -23,7 +25,10 @@ class DateExtractor(object):
         with open(filename, 'r') as f:
             self.text = f.read()
 
-        self.text = self.text.decode('utf-16')
+        try:
+            self.text = self.text.decode('utf-16')
+        except UnicodeDecodeError:
+            pass
 
         self.parser = nltk.RegexpParser(self.GRAMMAR)
 
