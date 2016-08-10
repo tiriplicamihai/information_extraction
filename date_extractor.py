@@ -14,7 +14,7 @@ class DateExtractor(object):
     """
 
     GRAMMAR = r"""
-        CHUNK: {<NN><\(><CD><\)><NNS|NN>}
+        CHUNK: {<NN><\(><CD><\)><NNS|NN|JJ>}
     """
 
     def __init__(self, filename):
@@ -33,12 +33,18 @@ class DateExtractor(object):
         sentences = self._get_sentences()
         tagged_sentences = [nltk.pos_tag(sent) for sent in sentences]
 
-        s = [(u'thirty', 'NN'), (u'(', '('), (u'30', 'CD'), (u')', ')'), (u'days', 'NNS')]
+        #s = [(u'thirty', 'NN'), (u'(', '('), (u'30', 'CD'), (u')', ')'), (u'days', 'NNS')]
+        result = []
+        for sentence in tagged_sentences:
+            #if any(['day' in w for w, _ in sentence]):
+            #    import ipdb; ipdb.set_trace()
+            tree = self.parser.parse(sentence)
+            time_expression = self._extract_data_from_tree(tree)
 
-        tree = self.parser.parse(s)
+            if time_expression:
+                result.append(time_expression)
 
-        time_expression = self._extract_data_from_tree(tree)
-        return []
+        return result
 
     def _extract_data_from_tree(self, tree):
         for subtree in tree.subtrees():
