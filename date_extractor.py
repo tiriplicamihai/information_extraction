@@ -25,7 +25,6 @@ class DateExtractor(object):
 
         self.text = self.text.decode('utf-16')
 
-        import ipdb; ipdb.set_trace()
         self.parser = nltk.RegexpParser(self.GRAMMAR)
 
         print 'Date extractor for file %s' % filename
@@ -36,10 +35,17 @@ class DateExtractor(object):
 
         s = [(u'thirty', 'NN'), (u'(', '('), (u'30', 'CD'), (u')', ')'), (u'days', 'NNS')]
 
-        import ipdb; ipdb.set_trace()
-        result = self.parser.parse(s)
+        tree = self.parser.parse(s)
 
+        time_expression = self._extract_data_from_tree(tree)
         return []
+
+    def _extract_data_from_tree(self, tree):
+        for subtree in tree.subtrees():
+            if subtree.label() == 'CHUNK':
+                return ' '.join(w for w, _ in subtree.leaves())
+
+        return ''
 
     def _get_sentences(self):
         sentences = nltk.sent_tokenize(self.text)
