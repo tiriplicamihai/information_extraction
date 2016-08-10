@@ -14,8 +14,8 @@ class DateExtractor(object):
     """
 
     GRAMMAR = r"""
-        CHUNK: {<NN|CD><\(><CD><\)><NNS|NN|JJ>}      # thirty (30) days
-               {<NN|CD><\(><CD><\)><VBG><NNS|NN|JJ>} # thirty (30) working days
+        CHUNK: {<NN|NNP|CD|VB><\(><CD><\)><NNS|NN|JJ>}      # thirty (30) days
+               {<NN|NNP|CD|VB><\(><CD><\)><VBG|NN><NNS|NN|JJ>} # thirty (30) working|business days
                {<CD><NNS>}                           # 10 days
     """
 
