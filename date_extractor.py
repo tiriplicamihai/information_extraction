@@ -1,7 +1,7 @@
 import re
 
 import nltk
-
+import chardet
 
 class DateExtractor(object):
     """Module for extracting date expressions from text.
@@ -25,10 +25,8 @@ class DateExtractor(object):
         with open(filename, 'r') as f:
             self.text = f.read()
 
-        try:
+        if 'UTF-16' in chardet.detect(self.text).get('encoding', ''):
             self.text = self.text.decode('utf-16')
-        except UnicodeDecodeError:
-            pass
 
         self.parser = nltk.RegexpParser(self.GRAMMAR)
 
@@ -41,8 +39,8 @@ class DateExtractor(object):
         #s = [(u'thirty', 'NN'), (u'(', '('), (u'30', 'CD'), (u')', ')'), (u'days', 'NNS')]
         result = []
         for sentence in tagged_sentences:
-            #if any(['day' in w for w, _ in sentence]):
-            #    import ipdb; ipdb.set_trace()
+           # if any(['day' in w for w, _ in sentence]):
+           #     import ipdb; ipdb.set_trace()
             tree = self.parser.parse(sentence)
             time_expression = self._extract_data_from_tree(tree)
 
