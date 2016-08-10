@@ -1,4 +1,5 @@
 import os
+from pprint import pprint
 
 from constants import DATA_SET_PATH
 from date_extractor import DateExtractor
@@ -36,6 +37,8 @@ def main():
         print 'Could not instantiate date extractor: %r' % e
 
     dates = date_extractor.extract_dates()
+
+    pprint(dates)
 
 
 if __name__ == '__main__':
