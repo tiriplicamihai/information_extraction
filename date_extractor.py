@@ -14,9 +14,10 @@ class DateExtractor(object):
     """
 
     GRAMMAR = r"""
-        CHUNK: {<NN|NNP|CD|VB><\(><CD><\)><NNS|NN|JJ>}      # thirty (30) days
-               {<NN|NNP|CD|VB><\(><CD><\)><VBG|NN><NNS|NN|JJ>} # thirty (30) working|business days
-               {<CD><NNS>}                           # 10 days
+        CHUNK: {<JJ|NN|NNP|CD|VB><\(><CD><\)><VBG|NN><NNS|NN|JJ>} # thirty (30) working|business days
+               {<JJ|NN|NNP|CD|VB><\(><CD><\)><NNS|NN|JJ>} # thirty (30) days
+               {<CD><NN><NNS|NN>} # thirty business days
+               {<CD><NN|NNS>} # 10 days, 1 year
     """
 
     def __init__(self, filename):
@@ -36,25 +37,25 @@ class DateExtractor(object):
         sentences = self._get_sentences()
         tagged_sentences = [nltk.pos_tag(sent) for sent in sentences]
 
-        #s = [(u'thirty', 'NN'), (u'(', '('), (u'30', 'CD'), (u')', ')'), (u'days', 'NNS')]
         result = []
         for sentence in tagged_sentences:
-           # if any(['day' in w for w, _ in sentence]):
-           #     import ipdb; ipdb.set_trace()
+            #if any(['15' in w for w, _ in sentence]):
+            #    import ipdb; ipdb.set_trace()
             tree = self.parser.parse(sentence)
-            time_expression = self._extract_data_from_tree(tree)
+            time_expressions = self._extract_data_from_tree(tree)
 
-            if time_expression:
-                result.append(time_expression)
+            if time_expressions:
+                result.extend(time_expressions)
 
         return result
 
     def _extract_data_from_tree(self, tree):
+        expressions = []
         for subtree in tree.subtrees():
             if subtree.label() == 'CHUNK':
-                return ' '.join(w for w, _ in subtree.leaves())
+                expressions.append(' '.join(w for w, _ in subtree.leaves()))
 
-        return ''
+        return expressions
 
     def _get_sentences(self):
         sentences = nltk.sent_tokenize(self.text)
