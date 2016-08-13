@@ -32,7 +32,7 @@ def main():
     files = get_txt_files()
 
     try:
-        date_extractor = DateExtractor(files[1])
+        date_extractor = DateExtractor(files[-1])
     except Exception as e:
         print 'Could not instantiate date extractor: %r' % e
 
