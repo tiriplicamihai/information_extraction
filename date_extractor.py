@@ -17,7 +17,7 @@ class DateExtractor(object):
         CHUNK: {<JJ|NN|NNP|CD|VB><\(><CD><\)><VBG|NN><NNS|NN|JJ>} # thirty (30) working|business days
                {<JJ|NN|NNP|CD|VB><\(><CD><\)><NNS|NN|JJ>} # thirty (30) days
                {<CD><NN><NNS|NN>} # thirty business days
-               {<CD><NN|NNS>} # 10 days, 1 year
+               {<CD><NN|NNS|JJ>} # 10 days, 1 year
     """
 
     def __init__(self, filename):
@@ -39,13 +39,13 @@ class DateExtractor(object):
 
         result = []
         for sentence in tagged_sentences:
-            #if any(['15' in w for w, _ in sentence]):
-            #    import ipdb; ipdb.set_trace()
             tree = self.parser.parse(sentence)
             time_expressions = self._extract_data_from_tree(tree)
 
             if time_expressions:
                 result.extend(time_expressions)
+            #elif any(['day' in w for w, _ in sentence]):
+            #    import ipdb; ipdb.set_trace()
 
         return result
 
