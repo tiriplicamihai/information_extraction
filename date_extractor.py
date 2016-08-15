@@ -1,7 +1,12 @@
 import re
 
 import nltk
+from nltk.stem.porter import PorterStemmer
 import chardet
+
+
+ALLOWED_STEMS = ['year', 'month', 'day', 'hour', 'minut', 'second', 'period']
+
 
 class DateExtractor(object):
     """Module for extracting date expressions from text.
@@ -30,6 +35,7 @@ class DateExtractor(object):
             self.text = self.text.decode('utf-16')
 
         self.parser = nltk.RegexpParser(self.GRAMMAR)
+        self.stemmer = PorterStemmer()
 
         print 'Date extractor for file %s' % filename
 
@@ -40,10 +46,10 @@ class DateExtractor(object):
         result = []
         for sentence in tagged_sentences:
             tree = self.parser.parse(sentence)
-            time_expressions = self._extract_data_from_tree(tree)
 
-            if time_expressions:
-                result.extend(time_expressions)
+            for expression in self._extract_data_from_tree(tree):
+                if expression and not self._is_false_positive(expression):
+                    result.append(expression)
             #elif any(['day' in w for w, _ in sentence]):
             #    import ipdb; ipdb.set_trace()
 
@@ -78,3 +84,12 @@ class DateExtractor(object):
 
         sentences = [nltk.word_tokenize(sent) for sent in sentences]
         return sentences
+
+    def _is_false_positive(self, expression):
+        # The last token should be either time unit or 'period'
+        time_unit = expression.split()[-1]
+
+        if self.stemmer.stem_word(time_unit) not in ALLOWED_STEMS:
+            return True
+
+        return False
