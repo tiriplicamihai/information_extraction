@@ -52,8 +52,18 @@ class DateExtractor(object):
     def _extract_data_from_tree(self, tree):
         expressions = []
         for subtree in tree.subtrees():
-            if subtree.label() == 'CHUNK':
-                expressions.append(' '.join(w for w, _ in subtree.leaves()))
+            if not subtree.label() == 'CHUNK':
+                continue
+
+            tokens = list(subtree.leaves())
+            expression = tokens[0][0] + ' '
+            for token, _ in tokens[1:]:
+                expression += token
+                if token.isalpha() or token == ')':
+                    expression += ' '
+
+            expression = expression.strip()
+            expressions.append(expression)
 
         return expressions
 
