@@ -1,11 +1,15 @@
 import re
 
+import chardet
 import nltk
 from nltk.stem.porter import PorterStemmer
-import chardet
+
+from helpers import join_sentence
 
 
 ALLOWED_STEMS = ['year', 'month', 'day', 'hour', 'minut', 'second', 'period']
+AGE_EXPRESSIONS = ['of age', 'old']
+YEAR_STEM = 'year'
 
 
 class DateExtractor(object):
@@ -48,7 +52,7 @@ class DateExtractor(object):
             tree = self.parser.parse(sentence)
 
             for expression in self._extract_data_from_tree(tree):
-                if expression and not self._is_false_positive(expression):
+                if expression and not self._is_false_positive(expression, sentence):
                     result.append(expression)
             #elif any(['day' in w for w, _ in sentence]):
             #    import ipdb; ipdb.set_trace()
@@ -61,15 +65,7 @@ class DateExtractor(object):
             if not subtree.label() == 'CHUNK':
                 continue
 
-            tokens = list(subtree.leaves())
-            expression = tokens[0][0] + ' '
-            for token, _ in tokens[1:]:
-                expression += token
-                if token.isalpha() or token == ')':
-                    expression += ' '
-
-            expression = expression.strip()
-            expressions.append(expression)
+            expressions.append(join_sentence([t[0] for t in subtree.leaves()]))
 
         return expressions
 
@@ -85,11 +81,24 @@ class DateExtractor(object):
         sentences = [nltk.word_tokenize(sent) for sent in sentences]
         return sentences
 
-    def _is_false_positive(self, expression):
+    def _is_false_positive(self, expression, tagged_sentence):
         # The last token should be either time unit or 'period'
         time_unit = expression.split()[-1]
 
-        if self.stemmer.stem_word(time_unit) not in ALLOWED_STEMS:
+        stem = self.stemmer.stem_word(time_unit)
+        if stem not in ALLOWED_STEMS:
             return True
+
+        if stem == YEAR_STEM:
+            # Check if the sentence represents an age expression (it is followed by "of age"
+            # or "old").
+            sentence = join_sentence([t[0] for t in tagged_sentence])
+            idx = sentence.find(expression) + len(expression)
+            subsentence = sentence[idx:].strip()
+            # Note: This check may fail if in the same sentence there are both age expressions and
+            # date expressions in years. This should not be a problem since no reviewed document
+            # has this case (it also doesn't make sense in the pseudo-structure of agreements).
+            if any(subsentence.startswith(expr) for expr in AGE_EXPRESSIONS):
+                return True
 
         return False
