@@ -3,6 +3,7 @@ import re
 import chardet
 import nltk
 from nltk.stem.porter import PorterStemmer
+from num2words import num2words
 
 from helpers import join_sentence
 
@@ -52,12 +53,70 @@ class DateExtractor(object):
             tree = self.parser.parse(sentence)
 
             for expression in self._extract_data_from_tree(tree):
-                if expression and not self._is_false_positive(expression, sentence):
-                    result.append(expression)
+                if not expression or self._is_false_positive(expression, sentence):
+                    continue
+
+                expression = self._extend_to_left(expression, sentence)
+                result.append(expression)
             #elif any(['day' in w for w, _ in sentence]):
             #    import ipdb; ipdb.set_trace()
 
         return result
+
+    def _extend_to_left(self, expression, tagged_sentence):
+        """Try to complete the first numeral. It's a helaing method for the next scenario:
+        seventy two (72) days.
+        """
+        num_text = self._extract_number_from_expression(expression)
+        if not num_text:
+            return expression
+
+        if expression.startswith(num_text):
+            # Expression is correctly formatted
+            return expression
+
+        # If the text would have contained '-' the expression would have been correct.
+        num_words = num_text.split('-')
+
+        if not expression.startswith(num_words[-1]):
+            print 'Expression %s does not start with the expected word %s' % (expression,
+                                                                              num_words[-1])
+            return expression
+
+        sentence = join_sentence([t[0] for t in tagged_sentence])
+
+        # Last word is in the expression, the other words we expect to find in the subsentence.
+        # The fact that there can be more such expressions in a sentence was considered but we
+        # should not do anything special for them because agreements have a pseudo structure which
+        # leads to consistency in terms of formats.
+        idx = sentence.find(expression)
+
+        subsentence = sentence[:idx].strip().split()
+        subsentence.reverse()
+
+        num_words = num_words[:-1]
+        num_words.reverse()
+
+        idx = 0
+        wc = len(num_words)
+        while idx < wc and num_words[idx] == subsentence[idx]:
+            expression = '%s %s' % (num_words[idx], expression)
+            idx += 1
+
+        return expression
+
+    def _extract_number_from_expression(self, expression):
+        number_search = re.search('\(([0-9]+)\)', expression)
+        if not number_search:
+            return None
+
+        try:
+            number = int(number_search.groups()[0])
+        except:
+            print "Could not extract number from expression: %s" % expression
+            return None
+
+        return num2words(number)
 
     def _extract_data_from_tree(self, tree):
         expressions = []
