@@ -5,12 +5,8 @@ import nltk
 from nltk.stem.porter import PorterStemmer
 from num2words import num2words
 
+from constants import ALLOWED_STEMS, AGE_EXPRESSIONS, YEAR_STEM
 from helpers import join_sentence
-
-
-ALLOWED_STEMS = ['year', 'month', 'day', 'hour', 'minut', 'second', 'period']
-AGE_EXPRESSIONS = ['of age', 'old']
-YEAR_STEM = 'year'
 
 
 class DateExtractor(object):
@@ -24,10 +20,10 @@ class DateExtractor(object):
     """
 
     GRAMMAR = r"""
-        CHUNK: {<JJ|NN|NNP|CD|VB><\(><CD><\)><VBG|NN><NNS|NN|JJ>} # thirty (30) working|business days
-               {<JJ|NN|NNP|CD|VB><\(><CD><\)><NNS|NN|JJ>} # thirty (30) days
-               {<CD><NN><NNS|NN>} # thirty business days
-               {<CD><NN|NNS|JJ>} # 10 days, 1 year
+        DATE: {<JJ|NN|NNP|CD|VB><\(><CD><\)><VBG|NN><NNS|NN|JJ>} # thirty (30) working|business days
+              {<JJ|NN|NNP|CD|VB><\(><CD><\)><NNS|NN|JJ>} # thirty (30) days
+              {<CD><NN><NNS|NN>} # thirty business days
+              {<CD><NN|NNS|JJ>} # 10 days, 1 year
     """
 
     def __init__(self, filename):
@@ -58,8 +54,6 @@ class DateExtractor(object):
 
                 expression = self._extend_to_left(expression, sentence)
                 result.append(expression)
-            #elif any(['day' in w for w, _ in sentence]):
-            #    import ipdb; ipdb.set_trace()
 
         return result
 
@@ -121,7 +115,7 @@ class DateExtractor(object):
     def _extract_data_from_tree(self, tree):
         expressions = []
         for subtree in tree.subtrees():
-            if not subtree.label() == 'CHUNK':
+            if not subtree.label() == 'DATE':
                 continue
 
             expressions.append(join_sentence([t[0] for t in subtree.leaves()]))
