@@ -1,6 +1,5 @@
 import re
 
-import chardet
 import nltk
 from nltk.stem.porter import PorterStemmer
 from num2words import num2words
@@ -26,19 +25,12 @@ class DateExtractor(object):
               {<CD><NN|NNS|JJ>} # 10 days, 1 year
     """
 
-    def __init__(self, filename):
+    def __init__(self, text):
         super(DateExtractor, self).__init__()
 
-        with open(filename, 'r') as f:
-            self.text = f.read()
-
-        if 'UTF-16' in chardet.detect(self.text).get('encoding', ''):
-            self.text = self.text.decode('utf-16')
-
+        self.text = text
         self.parser = nltk.RegexpParser(self.GRAMMAR)
         self.stemmer = PorterStemmer()
-
-        print 'Date extractor for file %s' % filename
 
     def extract_dates(self):
         sentences = self._get_sentences()

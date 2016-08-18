@@ -1,6 +1,8 @@
 import os
 from pprint import pprint
 
+import chardet
+
 from constants import DATA_SET_PATH
 from date_extractor import DateExtractor
 
@@ -28,11 +30,24 @@ def get_txt_files():
     return files
 
 
+def get_text_content(filename):
+    with open(filename, 'r') as f:
+        text = f.read()
+
+    if 'UTF-16' in chardet.detect(text).get('encoding', ''):
+        text = text.decode('utf-16')
+
+    return text
+
+
 def main():
     files = get_txt_files()
 
+    filename = files[140]
+    print 'Date extractor for file %s' % filename
+
     try:
-        date_extractor = DateExtractor(files[-1])
+        date_extractor = DateExtractor(get_text_content(filename))
     except Exception as e:
         print 'Could not instantiate date extractor: %r' % e
 
