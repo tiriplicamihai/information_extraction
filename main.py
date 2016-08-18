@@ -26,7 +26,6 @@ def get_txt_files():
             if os.path.isfile(file_path) and inner_file.endswith('.txt'):
                 files.append(file_path)
 
-
     return files
 
 
