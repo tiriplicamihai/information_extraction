@@ -45,12 +45,14 @@ def main():
     filename = files[140]
     print 'Date extractor for file %s' % filename
 
+    date_extractor = DateExtractor()
+
+    dates = []
     try:
-        date_extractor = DateExtractor(get_text_content(filename))
+        dates = date_extractor.extract_dates(get_text_content(filename))
     except Exception as e:
         print 'Could not instantiate date extractor: %r' % e
 
-    dates = date_extractor.extract_dates()
 
     pprint(dates)
 

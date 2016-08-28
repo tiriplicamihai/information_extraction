@@ -25,15 +25,14 @@ class DateExtractor(object):
               {<CD><NN|NNS|JJ>} # 10 days, 1 year
     """
 
-    def __init__(self, text):
+    def __init__(self):
         super(DateExtractor, self).__init__()
 
-        self.text = text
         self.parser = nltk.RegexpParser(self.GRAMMAR)
         self.stemmer = PorterStemmer()
 
-    def extract_dates(self):
-        sentences = self._get_sentences()
+    def extract_dates(self, text):
+        sentences = self._get_sentences(text)
         tagged_sentences = [nltk.pos_tag(sent) for sent in sentences]
 
         result = []
@@ -50,7 +49,7 @@ class DateExtractor(object):
         return result
 
     def _extend_to_left(self, expression, tagged_sentence):
-        """Try to complete the first numeral. It's a helaing method for the next scenario:
+        """Try to complete the first numeral. It's a healing method for the next scenario:
         seventy two (72) days.
         """
         num_text = self._extract_number_from_expression(expression)
@@ -114,8 +113,8 @@ class DateExtractor(object):
 
         return expressions
 
-    def _get_sentences(self):
-        sentences = nltk.sent_tokenize(self.text)
+    def _get_sentences(self, text):
+        sentences = nltk.sent_tokenize(text)
         # Remove new lines
         sentences = [s.replace('\r\n', ' ') for s in sentences]
 
