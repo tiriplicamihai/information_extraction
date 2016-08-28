@@ -4,5 +4,7 @@ def join_sentence(tokens):
         sentence += token
         if token.isalpha() or token == ')':
             sentence += ' '
+        elif not sentence.endswith('(%s' % token) and token.isalnum():
+            sentence += ' '
 
     return sentence.strip()
