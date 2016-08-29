@@ -1,3 +1,4 @@
+import json
 import os
 from pprint import pprint
 
@@ -42,19 +43,23 @@ def get_text_content(filename):
 def main():
     files = get_txt_files()
 
-    filename = files[140]
-    print 'Date extractor for file %s' % filename
-
     date_extractor = DateExtractor()
+    #filename = files[140]
+    result = {}
+    for filename in files[10:30]:
+        print 'Date extractor for file %s' % filename
 
-    dates = []
-    try:
-        dates = date_extractor.extract_dates(get_text_content(filename))
-    except Exception as e:
-        print 'Could not instantiate date extractor: %r' % e
+        try:
+            dates = date_extractor.extract_dates(get_text_content(filename))
+        except Exception as e:
+            print 'Could not extract dates: %r' % e
+            continue
 
+        result[filename.split('/')[-1]] = dates
 
-    pprint(dates)
+    #pprint(dates)
+    with open('output.json', 'w') as f:
+        json.dump(result, f)
 
 
 if __name__ == '__main__':
