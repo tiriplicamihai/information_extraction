@@ -46,7 +46,7 @@ def main():
     date_extractor = DateExtractor()
     #filename = files[140]
     result = {}
-    for filename in files[10:30]:
+    for filename in files:
         print 'Date extractor for file %s' % filename
 
         try:
