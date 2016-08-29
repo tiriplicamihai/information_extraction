@@ -63,7 +63,7 @@ class DateExtractor(object):
         # If the text would have contained '-' the expression would have been correct.
         num_words = num_text.split('-')
 
-        if not expression.startswith(num_words[-1]):
+        if not expression.lower().startswith(num_words[-1]):
             print 'Expression %s does not start with the expected word %s' % (expression,
                                                                               num_words[-1])
             return expression
